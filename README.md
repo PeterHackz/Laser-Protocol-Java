@@ -53,7 +53,7 @@ This software is intended for educational research into network security and bin
 
 ### Credits
 
-Developed by **S.B** and **risporce#6552**.
+This project was developed by [PeterHackz](https://github.com/PeterHackz) and [risporce#6552](https://github.com/risporce).
 
 * Updated protocol support and logic refinements provided by community contributors.
 
