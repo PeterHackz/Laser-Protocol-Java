@@ -1,35 +1,64 @@
-# BrawlStars-JavaClient
-implementation of [brawl stars client](https://github.com/HaccerCat/BrawlStars-Client) in java
+# Laser-Protocol-Java
 
-## BrawlStars-Client
-client for brawl stars v46 prod server
+An implementation of a stateful, encrypted binary messaging protocol client in Java. This project focuses on the low-level mechanics of socket communication, custom bit-level serialization, and authenticated encryption.
 
-# NOTE
-This content is not affiliated with, endorsed,sponsored, or specifically approved by supercell and supercell is not responsible for it.
+### Technical Implementation
 
-In addition, you are the only person responsible for your actions when using it.
+This repository demonstrates several core systems engineering concepts:
 
-## usage 
-install java, then:
-```
+* **Networking:** Asynchronous TCP socket management and handling of fragmented packet reassembly.
+* **Security:** Implementation of the **NaCl (Networking and Cryptography)** library for public-key exchange (Curve25519) and session-based authenticated encryption.
+* **Data Serialization:** Manual management of byte-streams for encoding and decoding complex data types into a structured binary format.
+* **Architecture:** Utilization of the **Factory Pattern** (`LogicLaserMessageFactory`) for dynamic message type resolution.
+
+### Research Objectives
+
+1. **Handshake Security:** Analyzing the efficiency of NaCl-box handshakes in high-latency networking environments.
+2. **Stream Integrity:** Implementing robust byte-stream readers to handle packet framing and protocol versioning.
+3. **State Management:** Maintaining a consistent client-side state machine during asynchronous communication with a remote host.
+
+### Usage
+
+**Compilation:**
+Navigate to the source directory and compile the entry point:
+
+```bash
 cd src
-```
-and compile the code using:
-```
 javac com/haccercat/client/Main.java -d out
-```
-then run it with:
-```
-cd out && java com/haccercat/client/Main game.brawlstarsgame.com 9339
-```
-if you want to save decrypted server packets, run the program with:
-```
-cd out && java com/haccercat/client/Main game.brawlstarsgame.com 9339 dump
+
 ```
 
-# credits
-this project was made by [S.B#0056](https://github.com/HaccerCat) and [risporce#6552](https://github.com/risporce)
+**Execution:**
+Start the client by targeting a host and port:
 
-## give a 🌟 because why not :p
+```bash
+cd out
+java com/haccercat/client/Main <host> <port>
 
-# [join my discord server](https://discord.gg/b2ejYcJjqA)
+```
+
+**Protocol Analysis:**
+To enable decryption and dumping of server-side payloads for research purposes:
+
+```bash
+java com/haccercat/client/Main <host> <port> dump
+
+```
+
+### Technical Note
+
+This software is intended for educational research into network security and binary protocol analysis. Usage of this tool is at the sole responsibility of the user, and it must be utilized in accordance with relevant terms of service and local regulations.
+
+---
+
+### Credits
+
+Developed by **S.B** and **risporce#6552**.
+
+* Updated protocol support and logic refinements provided by community contributors.
+
+### Support
+
+If this implementation was a helpful reference for your research or learning, feel free to leave a 🌟!
+
+**[Join the community](https://discord.peterr.dev)**
